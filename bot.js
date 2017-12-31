@@ -15,7 +15,7 @@ client.on('message', function (user, userID, channelID, message, evt) {
     switch (cmd)
     {
       case 'fetch':
-        bot.sendMessage({to: channelID, message: '*fetches*'});
+        client.sendMessage({to: channelID, message: '*fetches*'});
         break;
     }
   }
