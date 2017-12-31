@@ -6,10 +6,18 @@ client.on('ready', () => {
   client.user.setUsername("pupper-bot");
 });
 
-client.on('message', message => {
-  if (message.content == 'fetch')
+client.on('message', function (user, userID, channelID, message, evt) {
+  if (message.substring(0, 1) == '!')
   {
-    message.reply('*fetches*');
+    var args = message.substring(1).split(' ');
+    var cmd = args[0];
+    args = args.splice(1);
+    switch (cmd)
+    {
+      case 'fetch':
+        bot.sendMessage({to: channelID, message: '*fetches*'});
+        break;
+    }
   }
 });
 
