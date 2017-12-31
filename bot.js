@@ -6,23 +6,10 @@ client.on('ready', () => {
   client.user.setUsername("pupper-bot");
 });
 
-client.on('message', function (user, userID, channelID, message, evt) {
-  //if (message.substring(0, 1) == '!')
-  //{
-  //  var args = message.substring(1).split(' ');
-  //  var cmd = args[0];
-  //  args = args.splice(1);
-  //  switch (cmd)
-  //  {
-  //    case 'fetch':
-  //      client.sendMessage({to: channelID, message: '*fetches*'});
-  //      break;
-  //    case 'role':
-  //      let myRole = message.guild.roles.find(userID, "Some Role");
-  //      break;
-  //  }
-  //}
-  client.sendMessage({to: channelID, message: 'hey!'});
+client.on('message', message => {
+  if (message.author.bot) return;
+  if (message.content.indexOf('!') !== 0) return;
+  message.channel.send('Hey!');
 });
 
 client.login(process.env.BOT_TOKEN);
