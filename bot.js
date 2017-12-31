@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
   console.log('I am ready!');
-  client.user.setUsername("pupper-bot v1");
+  client.user.setUsername("pupper-bot");
 });
 
 client.on('message', message => {
