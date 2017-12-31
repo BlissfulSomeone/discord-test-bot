@@ -17,6 +17,9 @@ client.on('message', function (user, userID, channelID, message, evt) {
       case 'fetch':
         client.sendMessage({to: channelID, message: '*fetches*'});
         break;
+      case 'role':
+        let myRole = message.guild.roles.find(userID, "Some Role");
+        break;
     }
   }
 });
